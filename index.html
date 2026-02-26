@@ -333,9 +333,9 @@
                     const data = await response.json();
                     
                     if (setType === 'A') {
-                        this.state.quizSet = data.slice(0, 20); // First 10 questions
+                        this.state.quizSet = data.slice(0, 10); // First 10 questions
                     } else {
-                        this.state.quizSet = data.slice(20); // Question 11 onwards
+                        this.state.quizSet = data.slice(10); // Question 11 onwards
                         if(this.state.quizSet.length === 0) return alert("No additional questions available for Set B yet.");
                     }
                     
@@ -492,5 +492,6 @@
     </script>
 </body>
 </html>
+
 
 
