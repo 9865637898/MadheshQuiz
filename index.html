@@ -154,7 +154,7 @@
         
         <div class="glass-card">
             <h3 style="text-align: center; margin-top: 0;">Choose Practice Set</h3>
-            <p style="text-align: center; margin-bottom: 25px; color: var(--text-secondary);">Set A contains the first 20 questions.</p>
+            <p style="text-align: center; margin-bottom: 25px; color: var(--text-secondary);">Set A contains the first 10 questions.</p>
             
             <button class="btn btn-success" onclick="app.loadSet('A')">
                 Set A - Free Preview (20 MCQs)
@@ -223,6 +223,7 @@
     </div>
 
     <script>
+  
         // --- CONFIGURATION ---
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw4EBwp_tSyWgTnNsdBNnCNRa0Nzj1bAjjCuG2SaffMU1_wHuIFpieOouOb0Zl5KjpsrA/exec"; 
         const WHATSAPP_URL = "https://wa.me/qr/O7FO3PRTOUFGO1";
@@ -332,9 +333,9 @@
                     const data = await response.json();
                     
                     if (setType === 'A') {
-                        this.state.quizSet = data.slice(0, 20); // First 20 questions
+                        this.state.quizSet = data.slice(0, 20); // First 10 questions
                     } else {
-                        this.state.quizSet = data.slice(20); // Question 21 onwards
+                        this.state.quizSet = data.slice(20); // Question 11 onwards
                         if(this.state.quizSet.length === 0) return alert("No additional questions available for Set B yet.");
                     }
                     
@@ -344,7 +345,8 @@
                     console.error(error);
                 }
             },
-            startQuiz: function() {ù
+
+            startQuiz: function() {
                 this.state.currentIndex = 0;
                 this.state.score = 0;
                 this.showScreen('screen-quiz');
@@ -490,5 +492,4 @@
     </script>
 </body>
 </html>
-
 
