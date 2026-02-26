@@ -154,10 +154,10 @@
         
         <div class="glass-card">
             <h3 style="text-align: center; margin-top: 0;">Choose Practice Set</h3>
-            <p style="text-align: center; margin-bottom: 25px; color: var(--text-secondary);">Set A contains the first 10 questions.</p>
+            <p style="text-align: center; margin-bottom: 25px; color: var(--text-secondary);">Set A contains the first 20 questions.</p>
             
             <button class="btn btn-success" onclick="app.loadSet('A')">
-                Set A - Free Preview (10 MCQs)
+                Set A - Free Preview (20 MCQs)
             </button>
             
             <button id="btn-set-b" class="btn btn-premium" onclick="app.loadSet('B')">
@@ -332,9 +332,9 @@
                     const data = await response.json();
                     
                     if (setType === 'A') {
-                        this.state.quizSet = data.slice(0, 20); // First 10 questions
+                        this.state.quizSet = data.slice(0, 20); // First 20 questions
                     } else {
-                        this.state.quizSet = data.slice(20); // Question 11 onwards
+                        this.state.quizSet = data.slice(20); // Question 21 onwards
                         if(this.state.quizSet.length === 0) return alert("No additional questions available for Set B yet.");
                     }
                     
@@ -490,4 +490,5 @@
     </script>
 </body>
 </html>
+
 
